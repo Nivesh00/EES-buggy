@@ -63,18 +63,26 @@ int main()
 
     while(true)
     {
-        Speed(SPEED, SPEED);
+        Speed(SPEED - 25, SPEED);
 
+        while(abs(DEVIATION_SUM) < 90)
+        {
+            Forward();
+            std::cout << std::endl << "Deviation: " << DEVIATION << " °/s" << std::endl;
+            std::cout << "Deviation sum: " << DEVIATION_SUM << " °/s" << std::endl;
+        }
+        Speed(SPEED, SPEED);
+        Brake();
+
+        /*
+        Speed(SPEED, SPEED);
+        
         if(OBJ_DISTANCE > DISTANCE_MIN_TURN_cm)
         {
             std::cout << std::endl << "No obstacle found" << std::endl;
             std::cout << "Distance: " << OBJ_DISTANCE << " [cm]" << std::endl;
             std::cout << "Deviation: " << DEVIATION << " °/s" << std::endl;
             Forward();
-            while(DEVIATION_SUM < 0)
-                ForwardLeft();
-            while(DEVIATION_SUM > 0)
-                ForwardRight();
         }
         else if(OBJ_DISTANCE < DISTANCE_MIN_TURN_cm 
                                     && OBJ_DISTANCE > DISTANCE_MIN_BRAKE_cm)
@@ -117,6 +125,7 @@ int main()
                 std::cout << "Deviation: " << DEVIATION << " °/s" << std::endl;
             }
         }
+        */
     }
 
     Speed(0, 0);

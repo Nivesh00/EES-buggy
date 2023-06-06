@@ -32,7 +32,7 @@
 #define ACCEL_CONFIG_VALUE  24       /* no self test, set fullscale to 16g             */
 #define FIFO_EN_VALUE       16       /* only Gyroscope-z buffer is enavbled            */
 #define ACCEL_sensitivity   16384    /* raw values of ACCEL_OUT must be divided by it */
-#define GYRO_sensitivity    131      /* raw values of GYRO_OUT must be divided by it */
+#define GYRO_sensitivity    16.5      /* raw values of GYRO_OUT must be divided by it */
 
 extern int fd;
 extern float DEVIATION;
