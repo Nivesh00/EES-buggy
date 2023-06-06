@@ -1,8 +1,4 @@
 #include "buggy.h"
-// test git
-
-int s = 100;
-
 
 AdafruitMotorHAT hat;
 
@@ -10,6 +6,10 @@ AdafruitMotorHAT hat;
 auto wheelLeft { hat.getMotor(1) };
 auto wheelRight { hat.getMotor(4) };
 
+/**
+ * Left wheel always rotates faster than right one, this is a mechanical
+ * problem. To overcome this, rpm of left wheel is reduced by 15
+*/
 void Speed(int Left, int Right)
 {
     Left = Left > 15 ? Left : 15;
@@ -71,6 +71,10 @@ void Release()
     wheelLeft->run(AdafruitDCMotor::kRelease);
     wheelRight->run(AdafruitDCMotor::kRelease);
 }
+
+/**
+ * Functions below are incorrected and must be updated/removed
+*/
 
 void CurveRight()
 {

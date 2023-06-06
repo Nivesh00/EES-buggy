@@ -7,6 +7,8 @@
  * Gyroscope registers are defined here
  * Not all registers are shown, some are left out because they were
  * not used, e.g. I2C registers (master and alaves are ignored)
+ * 
+ * Most registers are unused. 
 */
 #define PWR_MGMT_1   0x6B       /*<! powermode and clocksource                         >*/
 #define SMPLRT_DIV   0x19       /*<! sample rate divider - output rate/(1 + SMLRT_DIV) >*/

@@ -1,6 +1,9 @@
 #include "sensor.h"
 
 
+/**
+ * Sets echo and trigger pin 
+*/
 void sensorPinSetUp()
 {
     pinMode(TRIGGER_PIN, OUTPUT);
@@ -25,8 +28,15 @@ void sensorCalcDistance()
         std::this_thread::sleep_for(std::chrono::nanoseconds(1));
         digitalWrite(TRIGGER_PIN, 0);
 
+        /**
+         * start stopwatch as soon as TRIGGER_PIN is zero again
+        */
         while (!digitalRead(ECHO_PIN))
             START = std::chrono::steady_clock::now();
+        /**
+         * Stop stopwatch as soon as incoming signal becomes 0 again
+         * OR if time taken is less than TIMEOUT_us
+        */
         while(digitalRead(ECHO_PIN))
         {
             STOP = std::chrono::steady_clock::now();
@@ -34,8 +44,14 @@ void sensorCalcDistance()
                 break;
         }
 
+        /**
+         * Calculate timetaken
+        */
         TIME = std::chrono::duration_cast<std::chrono::microseconds> (STOP - START).count();
 
+        /**
+         * Calculate distance and convert to centimeters
+        */
         DISTANCE = ((TIME * SoundSpeed_mpus)/2) * 100;
 
         OBJ_DISTANCE = DISTANCE;

@@ -9,11 +9,19 @@
 #include <wiringPi.h>
 #include "source/adafruitmotorhat.h"
 
+
+//default speed of motors: 150 rpm
 #define SPEED 150
+
 
 
 void Speed(int Left, int Right);
 
+/**
+ * Note: due to the way the buggy is assembled, the forward and backward
+ * functions are switched, i.e when the motors rotate in forward direction,
+ * Buggy goes backwards and vice versa
+*/
 
 void Backward();
 
@@ -38,6 +46,9 @@ void Brake();
 
 void Release();
 
+/**
+ * Note: Curve functions are not used but still implemented
+*/
 
 void CurveRight();
 

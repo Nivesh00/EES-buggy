@@ -1,6 +1,5 @@
 #include "gyro.h"
 
-//int fd;
 
 void MPU6050_Init()
 {
@@ -13,6 +12,9 @@ void MPU6050_Init()
 	//wiringPiI2CWriteReg8 (fd, INT_ENABLE, 0x01);	/*Write to interrupt enable register */
 }
 
+/**
+ * Reads register and provides raw values
+*/
 short read_full_register(int addr)
 {
 	short MSB, LSB, full_value;
