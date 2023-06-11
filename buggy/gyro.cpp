@@ -62,6 +62,10 @@ void read_data()
 	{
 		Gyro_z = read_full_register(GYRO_ZOUT_H);
 		DEVIATION = Gyro_z/GYRO_sensitivity;
+
+		if(abs(DEVIATION) < 3.0)
+			DEVIATION = 0.0;
+
 		DEVIATION_SUM += DEVIATION/100;
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}

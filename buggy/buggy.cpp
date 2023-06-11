@@ -12,8 +12,8 @@ auto wheelRight { hat.getMotor(4) };
 */
 void Speed(int Left, int Right)
 {
-    Left = Left > 15 ? Left : 15;
-    wheelLeft->setSpeed(Left - 15);
+    Left = Left > 8 ? Left : 8;
+    wheelLeft->setSpeed(Left - 8);
     wheelRight->setSpeed(Right);
 }
 
