@@ -92,7 +92,9 @@ int main()
                 else
                     Speed(SPEED, SPEED  - 25);
 
-                while(abs(DEVIATION_SUM) < 85)
+                LAST_TURN = !LAST_TURN;
+
+                while(abs(DEVIATION_SUM) < 88)
                 {   
                     if(OBJ_DISTANCE < DISTANCE_MIN_TURN_cm) break;
                     
@@ -122,15 +124,11 @@ int main()
                 {
                     digitalWrite(LED, 1);
                     if(LAST_TURN)
-                    {
                         ForwardRight();
-                        LAST_TURN = false;
-                    }
                     else
-                    {
                         ForwardLeft();
-                        LAST_TURN = true;
-                    }
+                    
+                    LAST_TURN = !LAST_TURN;
                     while(OBJ_DISTANCE < DISTANCE_MIN_TURN_cm)
                     {
                         if(OBJ_DISTANCE < DISTANCE_MIN_BRAKE_cm) break;
@@ -144,16 +142,13 @@ int main()
                     digitalWrite(LED, 1);
                     Brake();
                     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
                     if(LAST_TURN)
-                    {
                         BackwardRight();
-                        LAST_TURN = false;
-                    }
                     else
-                    {
                         BackwardLeft();
-                        LAST_TURN = true;
-                    }
+
+                    LAST_TURN = !LAST_TURN;
                     while(OBJ_DISTANCE < DISTANCE_MIN_BRAKE_cm)
                     {
                         std::cout << std::endl << "Obstacle found, brake immediately" << std::endl;
