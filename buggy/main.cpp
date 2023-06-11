@@ -94,7 +94,7 @@ int main()
 
                 while(abs(DEVIATION_SUM) < 85)
                 {   
-                    //if(OBJ_DISTANCE < DISTANCE_MIN_TURN_cm) break;
+                    if(OBJ_DISTANCE < DISTANCE_MIN_TURN_cm) break;
                     
                     Forward();
                     std::cout << std::endl << "Deviation: " << DEVIATION << " °/s" << std::endl;
