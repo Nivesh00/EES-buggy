@@ -28,7 +28,7 @@ void sensorCalcDistance()
     {
         TIMEOUT = false;
         digitalWrite(TRIGGER_PIN, 1);
-        std::this_thread::sleep_for(std::chrono::nanoseconds(1));
+        std::this_thread::sleep_for(std::chrono::microseconds(10));
         digitalWrite(TRIGGER_PIN, 0);
 
         CHECK = std::chrono::steady_clock::now();

@@ -9,7 +9,7 @@
 #define CURVE_90DEG      1 // follows a curved path of 90°
 #define STAY_ON_PATH     2 // goes in one direction even if buggy is moved
 
-int PATH = CURVE_90DEG;      // current path to folow
+int PATH = OBJ_RECOG;      // current path to folow
 
 // I2C device address of gyroscope
 int fd;
@@ -87,7 +87,7 @@ int main()
         {
             case CURVE_90DEG:
             
-                if(!LAST_TURN)
+                if(LAST_TURN)
                     Speed(SPEED - 25, SPEED);
                 else
                     Speed(SPEED, SPEED  - 25);
