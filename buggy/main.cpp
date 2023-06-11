@@ -103,7 +103,7 @@ int main()
                     std::cout << "Deviation sum: " << DEVIATION_SUM << " °/s" << std::endl;
                 }
 
-                PATH = OBJ_RECOG;
+                PATH = STAY_ON_PATH;
 
             break;
             
@@ -165,6 +165,7 @@ int main()
 
                 while(true)
                 {
+                    if(OBJ_DISTANCE < DISTANCE_MIN_TURN_cm) break;
                     if(DEVIATION_SUM > 1.0) Speed(SPEED + 50, SPEED);
                     else if (DEVIATION_SUM < -1.0) Speed(SPEED, SPEED + 50);
                     else Speed(SPEED, SPEED);
@@ -174,6 +175,8 @@ int main()
                     std::cout << "Distance: " << OBJ_DISTANCE << " [cm]" << std::endl;
                     std::cout << "Deviation: " << DEVIATION << " °/s" << std::endl;
                 }
+
+                PATH = OBJ_RECOG;
 
             break;
         }
