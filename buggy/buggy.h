@@ -45,12 +45,3 @@ void Brake();
 
 
 void Release();
-
-/**
- * Note: Curve functions are not used but still implemented
-*/
-
-void CurveRight();
-
-
-void CurveLeft();

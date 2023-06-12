@@ -67,13 +67,13 @@ int main()
     /* Initialise threads */
 
     /**
-     * Thread for distance, every 50ms, global variable OBJ_DISTANCE is updated
+     * Thread for distance, every 10ms, global variable OBJ_DISTANCE is updated
      * Main program then uses this value to make its next decision
     */
     piThreadCreate(readDistance);
 
     /**
-     * Thread for deviation, every 50ms, global variable DEVIATION is updated
+     * Thread for deviation, every 10ms, global variable DEVIATION is updated
      * Main progam then uses this value to make its next decision
     */
     piThreadCreate(readDeviation);

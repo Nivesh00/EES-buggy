@@ -71,22 +71,3 @@ void Release()
     wheelLeft->run(AdafruitDCMotor::kRelease);
     wheelRight->run(AdafruitDCMotor::kRelease);
 }
-
-/**
- * Functions below are incorrected and must be updated/removed
-*/
-
-void CurveRight()
-{
-    Speed(SPEED, SPEED/2);
-    wheelLeft->run(AdafruitDCMotor::kBackward);
-    wheelRight->run(AdafruitDCMotor::kBackward);
-}
-
-
-void CurveLeft()
-{
-    Speed(SPEED/2, SPEED);
-    wheelLeft->run(AdafruitDCMotor::kBackward);
-    wheelRight->run(AdafruitDCMotor::kBackward);
-}
