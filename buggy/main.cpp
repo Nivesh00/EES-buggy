@@ -103,7 +103,7 @@ int main()
                     std::cout << "Deviation sum: " << DEVIATION_SUM << " °/s" << std::endl;
                 }
 
-                PATH = STAY_ON_PATH;
+                PATH = OBJ_RECOG;
 
             break;
             
